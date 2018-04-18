@@ -1,0 +1,355 @@
+<style>
+    .topshopcart .cart-list {
+        display: block;
+        padding: 6px 12px;
+    }
+    .topshopcart .cart-count {
+        background: #f6f6f6;
+        color: #31373c;
+        font-size: 12px;
+        height: 40px;
+        line-height: 40px;
+        padding: 10px 15px 10px 20px;
+    }
+    .topshopcart .cart-item {
+        border-top: 1px solid #ddd;
+        display: block;
+        height: 72px;
+        line-height: 72px;
+        padding: 6px 0;
+    }
+    .topshopcart .cart-item:first-child {
+        border-top: none;
+    }
+    .mod-header a {
+        color: #bfbfbf;
+        font-size: 12px;
+    }
+    .topshopcart .cart-item .cart-item-price {
+        color: #333;
+        float: left;
+        height: 100%;
+        text-align: right;
+        width: 75px;
+    }
+    .topshopcart .cart-item .cart-item-num {
+        color: #666;
+        float: left;
+        text-align: center;
+        width: 30px;
+    }
+    .mod-header a {
+        color: #bfbfbf;
+        font-size: 12px;
+    }
+    .topshopcart .cart-item .cart-item-del {
+        background: url(https://p.ssl.qhimg.com/t01f2d40797748448d3.png) no-repeat 0 -59px;
+        float: left;
+        height: 16px;
+        margin-top: 28px;
+        width: 16px;
+    }
+
+    .topshopcart .cart-item .cart-item-img img {
+        float: left;
+        height: 72px;
+        width: 72px;
+    }
+
+    .topshopcart .cart-item .cart-item-text {
+        color: #666;
+        float: left;
+        line-height: 20px;
+        padding-left: 15px;
+        width: 140px;
+    }
+    .topshopcart .cart-item .cart-item-text strong {
+        display: table-cell;
+        font-weight: 400;
+        height: 72px;
+        overflow: hidden;
+        vertical-align: middle;
+    }
+    .topshopcart .cart-buy {
+        background: #f60;
+        border-radius: 2px;
+        color: #fff;
+        float: right;
+        font-size: 14px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        width: 120px;
+    }
+    .topshopcart .cart-count b {
+        color: #e94c30;
+        font-weight: 400;
+    }
+</style>
+<div class="header">
+    <!--tip start-->
+    <div class="mod-dialog">
+        <div class="dialog-nav">
+            <span class="dialog-title">提示</span>
+            <a href="#" onclick="return false" class="dialog-close"></a>
+        </div>
+        <div class="dialog-main"><div class="dialog-content"><p id="tip-content">购买数量为1到20之间的整数!</p></div><div class="dialog-console clearfix_new"><a class="console-btn-confirm" href="#" onclick="return false;">确定</a></div></div></div>
+	<div class="mod-dialog-bg" style=""></div>
+    <script>
+      function tip(content){
+          $('#tip-content').text(content);
+          $('.mod-dialog-bg').css("display","block");
+          $('.mod-dialog').css("display","block");
+
+          $('.dialog-close').click(function(e){
+              $(this).parent().parent().parent().find('.mod-dialog-bg').hide();
+              $(this).parent().parent('.mod-dialog').css("display","none");
+
+          })
+          $('.console-btn-confirm').click(function(e){
+              $(this).parent().parent().parent().parent().find('.mod-dialog-bg').css("display","none");
+              $(this).parent().parent().parent('.mod-dialog').css("display","none");
+          })
+      }
+    </script>
+    <!--tip over-->
+    <!--h1-->   
+    <div class="topbox" id="h1">
+        <div class="top-container">
+            <ul>
+                <li class="topbox-item leftitem" style="margin-left:-10px">
+                    <a href="home-page.html">返回首页</a>
+                </li>
+                <li class="topbox-item leftitem">
+                    <a href="#" target="_blank">网站导航</a>
+                </li>
+                <li class="topbox-item leftitem">
+                    <a href="#" target="_blank">商家入驻</a>
+                </li>
+                <li class="topbox-item leftitem">
+                    <a href="#" target="_blank">客户服务</a>
+                </li>
+                <li class="topbox-item rightitem" style="margin-right:-10px">
+                    <a href="goodsList.html" target="_blank">商品列表</a>
+                </li>
+                <li class="topbox-item rightitem hassx">
+                    <a href="detail.html" target="_blank" >商品详情</a>
+                </li>
+                <li class="topbox-item rightitem navloginbox">
+                    <div class="loginbefore nloginWrap" id="loginbefore">
+                        <a class="btn-login-pop" href="login.html" target="_blank">登录</a>
+                        <a class="btn-reg-pop"  href="register.html" target="_blank">注册</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--h2-->
+    <div class="top-container" id="h3">
+        <div class="header-logo">
+            <a href="index.html"><img src="https://res.suning.cn/public/v3/images/logo/snlogo.png?v=2015042703"></a>
+        </div>
+        <div class="header-tools">
+            <div class="suggest-box">
+                <form id="__mall_search_form__" action="">
+                    <div style="position: relative;display: inline-block;">
+                        <input type="text" id="__mall_search_kw__" class="suggest" name="q" autocomplete="off" placeholder="水果">
+                        <!--placeholder-->
+                        <ul id="search-suggest-1470052377169" class="__mall_suggest__" style="width: 462px; position: absolute; top: 42px; left: 0; z-index: 999999; ">
+                            <li data-monitor="home_search_xiala02" class=""><div class="sug-item"><em></em>红富士苹果</div><div class="desc">约有35件</div></li><li data-monitor="home_search_xiala03" class="hover"><div class="sug-item"><em></em>小苹果</div><div class="desc">约有179件</div></li><li data-monitor="home_search_xiala04" class=""><div class="sug-item"><em></em>皇冠梨</div><div class="desc">约有630件</div></li><li data-monitor="home_search_xiala05" class=""><div class="sug-item"><em></em>草莓</div><div class="desc">约有655件</div></li><li data-monitor="home_search_xiala06"><div class="sug-item"><em></em>栗子</div><div class="desc">约有640件</div></li><li data-monitor="home_search_xiala07"><div class="sug-item"><em></em>西瓜</div><div class="desc">约有22件</div></li><li data-monitor="home_search_xiala08"><div class="sug-item"><em></em>香蕉</div><div class="desc">约有446件</div></li><li data-monitor="home_search_xiala09"><div class="sug-item"><em></em>桃子</div><div class="desc">约有182件</div></li><li data-monitor="home_search_xiala10"><div class="sug-item"><em></em>桂圆</div><div class="desc">约有24件</div></li></ul>
+
+                        <script>
+                            $('#__mall_search_kw__').mousedown(function(){
+                                $('.__mall_suggest__').show();
+                            })
+                            $('#__mall_search_kw__').blur(function(){
+                                $('.__mall_suggest__').hide();
+                            })
+                            $('.__mall_suggest__ li').mouseover(function(){
+                                $(this).addClass("hover").siblings().removeClass("hover");
+                            })
+                            $('.__mall_suggest__ li').mousedown(function(e){
+                                if(1 == e.which){
+                                    $(this).parent().prev('input').val($(this).find('.sug-item').text());
+                                    $(this).parent().hide();
+                                }else {return false;}
+                            })
+                        </script>
+                    </div>
+                    <input type="submit" value="" class="search-btn" id="__mall_search_btn__">
+                </form>
+            </div>
+            <div class="topshopcart" id="topshopcart">
+                <a href="carts.html" target="_blank" class="header-cart" id="header-cart">
+                    <i class="icon"></i>
+                    我的购物车
+                    <span class="cart-size" id="cart-size">(0)</span>
+                </a>
+                <div class="header-cart-popup pop-show-tip" id="cart-hidden" style="z-index: 88888;">
+                    <div class="cart-tips" id="cartips" style="display: none;">
+                      您的购物车空空如也...
+                    </div>
+
+                    <!--<div class="cart-info"></div>-->
+                    <div class="cart-info">
+                        <ul class="cart-list" id="small-cart">
+                        </ul>
+                        <div class="cart-count">
+                            <span style="color:#31373c;">共<b id="totalNum">1</b>件商品 总计：
+                                <b id=""><span class="yen" style="color:#e94c30;">¥</span>
+                                <span id="totalPri"> 1299</span>
+                                 </b></span><a class="cart-buy" href="carts.html" target="_blank">去购物车</a></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--h3-->
+    <div class="navbox" id="navbox">
+        <div class="top-container" id="navbox-container">
+            <div id="move-color"></div>
+            <ul class="navbar column-list clearfix">
+                <li class="top-item topfirst">
+                    <a class="sp" href="javascript:;" target="_blank">全部商品分类</a>
+                </li>
+                <li class="top-item" data-type="1">
+                    <a href="javascript:;" target="_blank">大聚会</a>
+                </li>
+                <li class="top-item topnew" data-type="2">
+                    <a href="javascript:;" target="_blank">红孩子</a>
+                </li>
+                <li class="top-item" data-type="3">
+                    <a href="javascript:;">苏宁超市</a>
+                </li>
+                <li class="top-item" data-type="4">
+                    <a href="javascript:;">电器城</a>
+                </li>
+                <li class="top-item" data-type="5">
+                    <a href="javascript:;" target="_blank">生活家电</a>
+                </li>
+                <li class="top-item" data-type="6">
+                    <a href="javascript:;">时尚服饰</a>
+                </li>
+                <li class="top-item" data-type="7">
+                    <a href="javascript:;">海外购</a>
+                </li>
+                <li class="top-item topfree" data-type="8">
+                    <a href="javascript:;">特卖</a>
+                </li>
+                <li class="top-item" data-type="9">
+                    <a href="javascript:;">苏宁金融</a>
+                </li>
+                <li class="top-item" data-type="9">
+                    <a href="#">苏宁会员</a>
+                </li>
+            </ul>
+        </div>
+    </div>   
+   <!--header over-->
+</div>
+<script>
+    /*
+     header js h4 show hide
+     * */
+    $(".sublistbox").parent("li").hover(
+            function(){
+                $(this).find(".sublistbox").show();
+            },
+            function(){
+                $(this).find(".sublistbox").hide();
+            }
+    )
+    /*move color*/
+    var oListwarp=document.getElementById('navbox-container');
+    var aLi=oListwarp.children[1].children;
+    var oMove = document.getElementById('move-color');
+
+    var nowIndex=1;/*record li index*/
+    for(var i =1;i<aLi.length;i++){
+        aLi[i].index=i;
+        //一系列 事件 处理
+        aLi[i].onmousemove=function(){
+            var left=aLi[this.index].offsetLeft;
+            //console.log(left)
+            oMove.style.width=aLi[this.index].offsetWidth + 'px';
+            oMove.style.display = 'block';
+            move(oMove,'left',left)
+        }
+        aLi[i].onmouseout=function(){
+            var left=aLi[nowIndex].offsetLeft;
+            oMove.style.display = 'block';
+            oMove.style.width=aLi[nowIndex].offsetWidth + 'px';
+
+            move(oMove,'left',left)
+        }
+    }
+    /*cookie*/
+    //get date
+    var cartName =  getCookie("loginedUser");
+    if(cartName  == "") {//
+        cartName = 'admin';
+    }
+    //console.log(cartName);
+    var goods = $.cookie('mycart'+cartName) ?JSON.parse($.cookie('mycart'+cartName)) :{};
+    $('#cart-size').html(getJsonLength(goodsId, goods));
+
+    //使用数据
+    //拼接字符串
+    var html = '';
+   var totalPrice = 0.00;
+    var totalNum = 0;
+    for(var goodsId in goods){
+        html += '<li class="cart-item" id="'+ goods[goodsId].id + '"><a href="javascript:;" target="_blank" class="cart-item-img"><img src=" '+goods[goodsId].pic+' "><span class="cart-item-text"><strong>'
+        html += goods[goodsId].name;
+        html += '</strong></span></a><span class="cart-item-price" id=""><span class="yen">¥</span><span id="cart-item-price"> ';
+        html += goods[goodsId].price;
+        html += '</span></span><span class="cart-item-num" id=""> ×<span id="cart-item-num" >';
+        html += goods[goodsId].num;
+        html += '</span></span><a class="cart-item-del" href="javascript:;" ></a></li> ';
+       totalNum += parseFloat(goods[goodsId].num);
+       totalPrice += parseFloat(goods[goodsId].price) * parseFloat(goods[goodsId].num)
+    }
+    //进入页面时 加载
+    $('#small-cart').html(html);
+   $('#totalNum').html(totalNum);
+       // getTotalNum();
+    $('#totalPri').html(totalPrice.toFixed(2));
+       // getTotalPrice();
+    
+    /*点击删除*/
+    $('.cart-item-del').click(function(){
+        var goodsId = $(this).parent().attr('id');
+        $(this).parent().remove();
+        console.log(goodsId)
+        var goods = JSON.parse($.cookie('mycart'+cartName));
+        goods[goodsId] = undefined;
+        $.cookie('mycart'+cartName, JSON.stringify(goods), {expires: 7, path: '/'});
+        console.log(JSON.parse($.cookie('mycart'+cartName)));
+        getTotalNum();
+        getTotalPrice();
+    })
+
+    function getTotalPrice(){
+        var alis = $('.cart-item');
+        var no = 0;
+        var pri = 0;
+        var totalPric = 0;//小计
+        for (var i = 0; i < alis.length; i++) {
+            pri = parseFloat($(alis[i]).find('#cart-item-price').text());
+            no =  parseFloat($(alis[i]).find('#cart-item-num').text());
+            totalPric  += pri * no;
+        }
+       $('#totalPri').text(totalPric.toFixed(2));
+    }
+
+    function  getTotalNum(){
+        var lis = $('.cart-item');
+        var num = 0;
+        var totalNo = 0;//小计
+        for (var i = 0; i < lis.length; i++) {
+            num = parseFloat($(lis[i]).find('#cart-item-num').html());
+            //console.log(num)
+            totalNo += num;
+        }
+       $('#totalNum').text(totalNo);
+    }
+</script>

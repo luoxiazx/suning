@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>苏宁网上超市首页</title>
+		<link rel="stylesheet" type="text/css" href="../css/home-page.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
+		<script src="../js/jquery-1.4.2.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/getJsonLength.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/js.cookie.js" type="text/javascript" charset="utf-8"></script>
+				<style type="text/css">
+			ul,li,p{
+				padding: 0;
+				margin: 0;
+			}
+			a{
+				text-decoration: none;
+			}
+			li{
+				list-style: none;
+			}
+			#cart-hidden{
+				width: 300px;
+			}
+			#small-cart li{
+				overflow: hidden;
+    			padding: 6px 0;
+			}
+			#small-cart li img{
+				width: 72px;
+				float: left;
+			}
+			#small-cart li a{
+				border: 0;
+			}
+			.cart-item-text, .cart-item-price, .cart-item-num{
+				font-size: 12px;
+				color: #666;
+			    float: left;
+			    margin-top: 25px;
+			}
+			.cart-item-price{
+				margin-left: 60px;
+				margin-top: -2px;
+			}
+			.cart-item-num{
+				margin-top: -2px;
+			}
+			.cart-item-del{
+				float: right;
+			}
+			.cart-count{
+				padding: 10px;
+				font-size: 14px;
+			    height: 30px;
+			    line-height: 30px;
+			    overflow: hidden;
+			    background: #f5f5f5;
+			}
+			.cart-buy{
+				float: right;
+			    text-align: center;
+			    width: 80px;
+			    color: #fff;
+			    background: #f60;
+			}
+		</style>
+	</head>
+	<body>
+		<!--顶部广告-->
+		<div id="Top-advertisement">
+			<a target="_blank" href="https://cuxiao.suning.com/315CSpcpinzhi.html"><img src="../img/home-page/Top-advertisement.jpg"/></a>
+			<span>×</span>
+		</div>
+		<!--导航-->
+		<div id="nav">
+			<div class="main">
+				<!--导航左边-->
+				<div id="nav-left">
+					<div class="nav-box">
+						<a class="home" href="//www.suning.com"><i class="iconfont icon-home"></i><span>返回首页</span></a>
+					</div>
+					<div class="nav-box">
+						<a class="a1" href="#"><span>网站导航</span><i class="iconfont icon-z-arrowDown"></i></a>				
+						<div class="list">
+							<div class="list-box-1">
+								<h4>特色购物</h4>
+								<p><a href="https://10035.suning.com/" target="_blank">苏宁互联</a>	</p>
+								<p><a href="https://sale.suning.com/syb/pcdr/index.html" target="_blank">苏宁达人</a></p>
+								<p><a name="public0_none_daohang_tese04" href="https://ka.suning.com/" target="_blank">苏宁卡</a></p>
+								<p><a href="https://g.suning.com/" target="_blank">海外购</a></p>
+								<p><a href="https://ju.suning.com/" target="_blank">大聚惠<i class="hot"></i></a></p>
+								<p><a href="https://hx.suning.com/" target="_blank">以旧换新</a></p>
+								<p><a href="https://2.suning.com" target="_blank">二手优品</a></p>
+								<p><a href="https://quan.suning.com/lq_1.htm" target="_blank">领券中心</a></p>
+								<p><a href="https://www.hksuning.com" target="_blank">香港苏宁</a></p>
+								<p><a href="https://temai.suning.com/" target="_blank">苏宁特卖</a></p>
+								<p><a name="" href="https://cuxiao.suning.com/jn111.html" target="_blank">节能超市</a></p>
+							</div>
+							<div class="list-box-1">
+								<h4>特色购物</h4>
+								<p><a href="https://10035.suning.com/" target="_blank">苏宁互联</a>	</p>
+								<p><a href="https://sale.suning.com/syb/pcdr/index.html" target="_blank">苏宁达人</a></p>
+								<p><a name="public0_none_daohang_tese04" href="https://ka.suning.com/" target="_blank">苏宁卡</a></p>
+								<p><a href="https://g.suning.com/" target="_blank">海外购</a></p>
+								<p><a href="https://ju.suning.com/" target="_blank">大聚惠<i class="hot"></i></a></p>
+								<p><a href="https://hx.suning.com/" target="_blank">以旧换新</a></p>
+								<p><a href="https://2.suning.com" target="_blank">二手优品</a></p>
+								<p><a href="https://quan.suning.com/lq_1.htm" target="_blank">领券中心</a></p>
+								<p><a href="https://www.hksuning.com" target="_blank">香港苏宁</a></p>
+								<p><a href="https://temai.suning.com/" target="_blank">苏宁特卖</a></p>
+								<p><a name="" href="https://cuxiao.suning.com/jn111.html" target="_blank">节能超市</a></p>
+								<p><a href="https://2.suning.com" target="_blank">二手优品</a></p>
+								<p><a href="https://quan.suning.com/lq_1.htm" target="_blank">领券中心</a></p>
+								<p><a href="https://www.hksuning.com" target="_blank">香港苏宁</a></p>
+								<p><a href="https://temai.suning.com/" target="_blank">苏宁特卖</a></p>
+								<p><a name="" href="https://cuxiao.suning.com/jn111.html" target="_blank">节能超市</a></p>
+							</div>
+							<div class="list-box-1">
+								<h4>特色购物</h4>
+								<p><a href="https://10035.suning.com/" target="_blank">苏宁互联</a>	</p>
+								<p><a href="https://sale.suning.com/syb/pcdr/index.html" target="_blank">苏宁达人</a></p>
+								<p><a name="public0_none_daohang_tese04" href="https://ka.suning.com/" target="_blank">苏宁卡</a></p>
+								<p><a href="https://g.suning.com/" target="_blank">海外购</a></p>
+								<p><a href="https://ju.suning.com/" target="_blank">大聚惠<i class="hot"></i></a></p>
+								<p><a href="https://hx.suning.com/" target="_blank">以旧换新</a></p>
+							</div>
+					</div>
+					</div>
+					<div class="nav-box">
+						<a class="a1" href="#"><span>商家入驻</span><i class="iconfont icon-z-arrowDown"></i></a>
+						<div class="list">
+							<div class="list-box">
+								<p><a href="https://10035.suning.com/" target="_blank">苏宁互联</a>	</p>
+								<p><a href="https://sale.suning.com/syb/pcdr/index.html" target="_blank">苏宁达人</a></p>
+								<p><a name="public0_none_daohang_tese04" href="https://ka.suning.com/" target="_blank">苏宁卡</a></p>
+								<p><a href="https://g.suning.com/" target="_blank">海外购</a></p>
+								<p><a href="https://ju.suning.com/" target="_blank">大聚惠<i class="hot"></i></a></p>
+								<p><a href="https://hx.suning.com/" target="_blank">以旧换新</a></p>
+								<p><a href="https://2.suning.com" target="_blank">二手优品</a></p>
+							</div>
+						</div>		
+					</div>
+					<div class="nav-box">
+						<a class="a1" href="#"><span>客户服务</span><i class="iconfont icon-z-arrowDown"></i></a>
+						<div class="list">
+							<div class="list-box">
+								<p><a href="https://10035.suning.com/" target="_blank">苏宁互联</a>	</p>
+								<p><a href="https://sale.suning.com/syb/pcdr/index.html" target="_blank">苏宁达人</a></p>
+								<p><a name="public0_none_daohang_tese04" href="https://ka.suning.com/" target="_blank">苏宁卡</a></p>
+								<p><a href="https://g.suning.com/" target="_blank">海外购</a></p>
+								<p><a href="https://ju.suning.com/" target="_blank">大聚惠<i class="hot"></i></a></p>
+								<p><a href="https://hx.suning.com/" target="_blank">以旧换新</a></p>
+								<p><a href="https://2.suning.com" target="_blank">二手优品</a></p>						
+							</div>
+						</div>		
+					</div>
+				</div>
+				<!--导航右边-->
+				<div id="nav-right">
+					<div class="nav-box">
+						<a id="dlzc" href="#">
+							<i id="login">请登录</i>　<span id="register">注册有礼</span>
+						</a>
+					</div>
+					<div class="nav-box">
+						<a class="a1" href="#"><span>我的订单</span><i class="iconfont icon-z-arrowDown"></i></a>				
+						<div class="list">
+							<div class="list-box" style="width: 83px;">
+								<p><a href="https://10035.suning.com/" target="_blank">苏宁互联</a>	</p>
+								<p><a href="https://sale.suning.com/syb/pcdr/index.html" target="_blank">苏宁达人</a></p>
+								<p><a name="public0_none_daohang_tese04" href="https://ka.suning.com/" target="_blank">苏宁卡</a></p>
+								<p><a href="https://g.suning.com/" target="_blank">海外购</a></p>
+							</div>
+					</div>
+					</div>
+					<div class="nav-box">
+						<a class="a1" href="#"><span>我的易购</span><i class="iconfont icon-z-arrowDown"></i></a>
+						<div class="list">
+							<div class="list-box">
+								<div id="top">
+									<div id="left"><img src="../img/home-page/tx.jpg"/></div>
+									<div id="right">
+										<p>请登录</p>
+										<p id="p1">点击打卡</p>
+									</div>
+								</div>
+								<p><a href="https://10035.suning.com/" target="_blank">苏宁互联</a>	</p>
+								<p><a href="https://sale.suning.com/syb/pcdr/index.html" target="_blank">苏宁达人</a></p>
+								<p><a name="public0_none_daohang_tese04" href="https://ka.suning.com/" target="_blank">苏宁卡</a></p>
+								<p><a href="https://g.suning.com/" target="_blank">海外购</a></p>
+								<p><a href="https://ju.suning.com/" target="_blank">大聚惠<i class="hot"></i></a></p>
+								<p><a href="https://hx.suning.com/" target="_blank">以旧换新</a></p>
+							</div>
+						</div>		
+					</div>
+					<div class="nav-box">
+						<a href="#"><span>苏宁会员</span></a>
+					</div>
+					<div class="nav-box">
+						<a id="buy" href="carts.html">
+							<i class="iconfont icon-gouwuche" style="color: #f60;"></i>
+							<span style="color: #f60;">购物车</span>
+							<span style="color: #f60;" id="cart-size"> 0 </span>
+							<i class="iconfont icon-z-arrowDown"></i>
+						</a>
+						<div class="list">
+        					<div class="header-cart-popup pop-show-tip" id="cart-hidden" style="z-index: 88;margin-bottom: -10px;">
+		                    <div class="cart-info">
+		                        <ul class="cart-list" id="small-cart">
+		                        </ul>
+		                        <div class="cart-count">
+		                            <span style="color:#31373c;">共<b id="totalNum">1</b>件商品 总计：
+		                                <b id=""><span class="yen" style="color:#e94c30;">¥</span>
+		                                <span id="totalPri"> 1299</span>
+		                                 </b></span><a class="cart-buy" href="carts.html" target="_blank" style="color: #fff; height: 30px; line-height: 30px;">去购物车</a></div></div>
+		                
+		                </div>
+						</div>		
+					</div>
+					<div class="nav-box">
+						<a href="#"><span>易付宝</span></a>
+					</div>
+					<div class="nav-box">
+						<a href="#"><span>企业采购</span></a>
+					</div>
+					<div class="nav-box">
+						<a class="a1" href="#"><span>手机苏宁</span><i class="iconfont icon-z-arrowDown"></i></a>
+						<div class="list-2">
+							<ul>
+								<li>
+									<img src="../img/home-page/redbag.png"/>
+									<p>escres</p>
+									<img class="test" src="../img/home-page/text.png"/>
+								</li>
+								<li>
+									<img src="../img/home-page/redbag.png"/>
+									<p>escres</p>
+									<p>escres</p>
+								</li>
+								<li>
+									<img src="../img/home-page/redbag.png"/>
+									<p>escres</p>
+									<p>escres</p>
+								</li>
+							</ul>
+						</div>		
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--搜索-->
+		<div id="search">
+			<div class="main">
+				<!--左-->
+				<div class="left">
+					<img src="../img/home-page/logo.jpg"/>
+				</div>
+				<!--中-->
+				<div class="center">
+					<div class="top">
+						<input type="text" id="txt" placeholder="315优品聚惠　家电满10000减1000"/>
+						<input type="button" id="btn1" value="搜索" />
+					</div>
+					<div class="bottom">
+						<a class="a1" href="#">白酒</a>
+						<a href="#">白酒</a>
+						<a class="a1" href="#">白酒</a>
+						<a href="#">白酒</a>
+						<a class="a1" href="#">白酒</a>
+						<a href="#">白酒</a>
+						<a href="#">白酒</a>
+						<a class="a1" href="#" style="border-right: 0;">白酒</a>
+					</div>
+				</div>
+				<div class="right">
+					<img src="../img/home-page/ewm.jpg"/>
+				</div>
+			</div>
+		</div>
+		<!--频道分类-->
+		<div id="pd">
+			<div class="main">
+				<div class="left">
+					<p>苏宁超市频道分类</p>
+				</div>
+				<div class="center">
+					<a href="#">超值抢购</a>
+					<div></div>
+					<a href="#">超值抢购</a>
+					<div></div>
+					<a href="#">超值抢购</a>
+					<div></div>
+					<a href="#">超值抢购</a>
+					<div></div>
+					<a href="#">超值抢购</a>
+				</div>
+			</div>
+		</div>
+		<!--轮播-->
+		<div id="banner">
+			<div id="container">
+		        <ul class="pic">
+		            <li><a href="javascript:;"><img class="img"></a></li>
+		            <li><a href="javascript:;"><img class="img"></a></li>
+		            <li><a href="javascript:;"><img class="img"></a></li>
+		            <li><a href="javascript:;"><img class="img"></a></li>
+		            <li><a href="javascript:;"><img class="img"></a></li>
+		        </ul>
+		        <ul id="position">
+		            <li class="cur"></li>
+		            <li class=""></li>
+		            <li class=""></li>
+		            <li class=""></li>
+		            <li class=""></li>
+		        </ul>
+		        <a href="javascript:;" id="prev" class="arrow">&lt;</a>
+		        <a href="javascript:;" id="next" class="arrow">&gt;</a>
+    		</div>
+			<div class="main">
+				<div class="left">
+					<ul class="lists">
+						<li class="list">
+							<div class="top">
+								<p><img src="../img/home-page/tu1.jpg"/>苏宁生鲜</p>
+							</div>
+							<div class="bottom">
+								<span>水果</span><span>海鲜水产</span>
+							</div>
+							<ul class="navlist">
+							</ul>
+						</li>
+						<div class="line"></div>
+						<li class="list">
+							<div class="top">
+								<p><img src="../img/home-page/tu1.jpg"/>苏宁生鲜</p>
+							</div>
+							<div class="bottom">
+								<span>水果</span><span>海鲜水产</span>
+							</div>
+							<ul class="navlist">
+							</ul>
+						</li>
+						<div class="line"></div>
+						<li class="list">
+							<div class="top">
+								<p><img src="../img/home-page/tu1.jpg"/>苏宁生鲜</p>
+							</div>
+							<div class="bottom">
+								<span>水果</span><span>海鲜水产</span>
+							</div>
+						</li>
+						<div class="line"></div>
+						<li class="list">
+							<div class="top">
+								<p><img src="../img/home-page/tu1.jpg"/>苏宁生鲜</p>
+							</div>
+							<div class="bottom">
+								<span>水果</span><span>海鲜水产</span>
+							</div>
+						</li>
+						<div class="line"></div>
+						<li class="list">
+							<div class="top">
+								<p><img src="../img/home-page/tu1.jpg"/>苏宁生鲜</p>
+							</div>
+							<div class="bottom">
+								<span>水果</span><span>海鲜水产</span>
+							</div>
+						</li>
+						<div class="line"></div>
+						<li class="list">
+							<div class="top">
+								<p><img src="../img/home-page/tu1.jpg"/>苏宁生鲜</p>
+							</div>
+							<div class="bottom">
+								<span>水果</span><span>海鲜水产</span>
+							</div>
+						</li>
+						<div class="line"></div>
+						<li class="list">
+							<div class="top">
+								<p><img src="../img/home-page/tu1.jpg"/>苏宁生鲜</p>
+							</div>
+							<div class="bottom">
+								<span>水果</span><span>海鲜水产</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="right">
+					<div class="top">
+						<div class="txt">
+							<p><span></span>春季流感，高能家庭护理...</p>
+							<p><span></span>来自世界各地的好牛奶，...</p>
+						</div>
+					</div>
+					<div class="bottom">						
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--主要内容-->
+		<div id="content">
+			<!--抢购-->
+			<div class="title">
+				<p>限/时/抢/购</p>
+				<span>FLASH</span>
+			</div>
+			<div class="qg">
+				<div class="top">
+					<p class="dj">今日必抢</p>
+					<p class="tom">明日预告</p>
+					<div id="time">
+						<div class="txt">距离本场结束还有</div>
+						<div class="t">
+							<span id="h"></span>
+							<span id="m"></span>
+							<span id="s"></span>
+						</div>
+					</div>
+				</div>
+				<div class="bottom">
+					<ul id="today">
+						<li>
+							<p class="jg">￥29.90</p>
+							<a href="goodsList.html"><img src="../img/home-page/qg1.jpg"/></a>
+							<p class="yqg">已抢光</p>
+						</li>
+						<li>
+							<p class="jg">￥59.90</p>
+							<a href="goodsList.html"><img src="../img/home-page/qg1.jpg"/></a>
+							<p class="yqg">已抢23%</p>
+						</li>
+						<li>
+							<p class="jg">￥39.90</p>
+							<a href="goodsList.html"><img src="../img/home-page/qg1.jpg"/></a>
+							<p class="yqg">已抢10%</p>
+						</li>
+						<li>
+							<p class="jg">￥3.90</p>
+							<a href="goodsList.html"><img src="../img/home-page/qg1.jpg"/></a>
+							<p class="yqg">已抢45%</p>
+						</li>
+						<li>
+							<p class="jg">￥3.90</p>
+							<a href="goodsList.html"><img src="../img/home-page/qg1.jpg"/></a>
+							<p class="yqg">已抢45%</p>
+						</li>
+					</ul>
+					<ul id="tomorrow" style="display: none;">
+						<li>
+							<p class="jg">￥69.90</p>
+							<a href="goodsList.html"><img src="../img/home-page/qg2.jpg"/></a>
+							<p class="yqg">未开始</p>
+						</li>
+						<li>
+							<p class="jg">￥59.90</p>
+							<a href="goodsList.html"><img src="../img/home-page/qg2.jpg"/></a>
+							<p class="yqg">未开始</p>
+						</li>
+						<li>
+							<p class="jg">￥39.90</p>
+							<a href="goodsList.html"><img src="../img/home-page/qg2.jpg"/></a>
+							<p class="yqg">未开始</p>
+						</li>
+						<li>
+							<p class="jg">￥73.90</p>
+							<a href="goodsList.html"><img src="../img/home-page/qg2.jpg"/></a>
+							<p class="yqg">未开始</p>
+						</li>
+						<li>
+							<p class="jg">￥53.90</p>
+							<a href="goodsList.html"><img src="../img/home-page/qg2.jpg"/></a>
+							<p class="yqg">未开始</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--优惠-->
+			<div class="title">
+				<p>优/惠/合/集</p>
+				<span>PREFERENTIAL COLLECTION</span>
+			</div>
+			<ul class="yh">
+				<li><a href="goodsList.html"><img src="../img/home-page/yh1.png"/></a></li>
+				<li><a href="goodsList.html"><img src="../img/home-page/yh2.png"/></a></li>
+				<li style="margin: 0;"><a href="goodsList.html"><img src="../img/home-page/yh3.png"/></a></li>
+			</ul>
+			<div class="water">
+				<img src="../img/home-page/water.jpg"/>
+			</div>
+			<!--优选-->
+			<div class="title">
+				<p>优/选/好/物</p>
+				<span>SELECT GOOD THINGS</span>
+			</div>
+			<div class="yxhw">
+				<div class="bg">
+					<img src="../img/home-page/yxhw.png"/ style="width: 100%;">
+				</div>
+				<div class="text">
+					<p class="hover">秀发飘逸</p>
+					<p>沐浴呵护</p>
+					<p>女性护理</p>
+					<p>口腔护理</p>
+				</div>
+				<div class="sp">
+					<ul>
+						<li>
+							<a href="detail.html"><img src="../img/home-page/sp1.jpg"/></a>
+							<p>佳洁士（Crest）健康专家全优7效牙膏 消...</p>
+						</li>
+						<li>
+							<a href="detail.html"><img src="../img/home-page/sp1.jpg"/></a>
+							<p>佳洁士（Crest）健康专家全优7效牙膏 消...</p>
+						</li>
+						<li>
+							<a href="detail.html"><img src="../img/home-page/sp1.jpg"/></a>
+							<p>佳洁士（Crest）健康专家全优7效牙膏 消...</p>
+						</li>
+						<li>
+							<a href="detail.html"><img src="../img/home-page/sp1.jpg"/></a>
+							<p>佳洁士（Crest）健康专家全优7效牙膏 消...</p>
+						</li>
+					</ul>
+				</div>			
+			</div>
+			<!--超级市场-->
+			<div class="title">
+				<p>超/级/市/场</p>
+				<span>THE SUPER MARKET</span>
+			</div>
+			<div class="h3">
+				<p>苏宁生鲜</p>
+				<img src="../img/home-page/ma.jpg"/>
+			</div>
+			<div class="stop">
+				<div class="left"> <img src="../img/home-page/super1.jpg"/></div>
+				<div class="right" style="width: 958px;">
+					<ul>
+						<li>
+							<a href="detail.html"><img src="../img/home-page/super2.jpg"/></a>
+							<p>【大聚惠原产地】礼县花牛苹果现摘水...</p>
+						</li>
+												<li>
+							<a href="detail.html"><img src="../img/home-page/super3.jpg"/></a>
+							<p>【大聚惠原产地】礼县花牛苹果现摘水...</p>
+						</li>
+												<li>
+							<a href="detail.html"><img src="../img/home-page/super4.jpg"/></a>
+							<p>【大聚惠原产地】礼县花牛苹果现摘水...</p>
+						</li>
+												<li>
+							<a href="detail.html"><img src="../img/home-page/super5.jpg"/></a>
+							<p>【大聚惠原产地】礼县花牛苹果现摘水...</p>
+						</li>
+												<li>
+							<a href="detail.html"><img src="../img/home-page/super2.jpg"/></a>
+							<p>【大聚惠原产地】礼县花牛苹果现摘水...</p>
+						</li>
+												<li>
+							<a href="detail.html"><img src="../img/home-page/super3.jpg"/></a>
+							<p>【大聚惠原产地】礼县花牛苹果现摘水...</p>
+						</li>
+												<li>
+							<a href="detail.html"><img src="../img/home-page/super4.jpg"/></a>
+							<p>【大聚惠原产地】礼县花牛苹果现摘水...</p>
+						</li>
+												<li>
+							<a href="detail.html"><img src="../img/home-page/super5.jpg"/></a>
+							<p>【大聚惠原产地】礼县花牛苹果现摘水...</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+					<div class="h3">
+				<p>中外名酒</p>
+				<img src="../img/home-page/ma.jpg"/>
+			</div>
+			<div class="stop">
+				<div class="left"> <img src="../img/home-page/jiu1.jpg"/></div>
+				<div class="right" style="width: 958px;">
+					<ul>
+						<li>
+							<a href="detail.html"><img src="../img/home-page/jiu2.jpg"/></a>
+							<p>茅台（MOUTAI）飞天 53度 500ml...</p>
+						</li>
+						<li>
+							<a href="detail.html"><img src="../img/home-page/jiu3.jpg"/></a>
+							<p>茅台（MOUTAI）飞天 53度 500ml...</p>
+						</li>
+						<li>
+							<a href="detail.html"><img src="../img/home-page/jiu4.jpg"/></a>
+							<p>茅台（MOUTAI）飞天 53度 500ml...</p>
+						</li>
+						<li>
+							<a href="detail.html"><img src="../img/home-page/jiu5.jpg"/></a>
+							<p>茅台（MOUTAI）飞天 53度 500ml...</p>
+						</li>
+						<li>
+							<a href="detail.html"><img src="../img/home-page/jiu2.jpg"/></a>
+							<p>茅台（MOUTAI）飞天 53度 500ml...</p>
+						</li>
+						<li>
+							<a href="detail.html"><img src="../img/home-page/jiu3.jpg"/></a>
+							<p>茅台（MOUTAI）飞天 53度 500ml...</p>
+						</li>
+						<li>
+							<a href="detail.html"><img src="../img/home-page/jiu4.jpg"/></a>
+							<p>茅台（MOUTAI）飞天 53度 500ml...</p>
+						</li>
+						<li>
+							<a href="detail.html"><img src="../img/home-page/jiu5.jpg"/></a>
+							<p>茅台（MOUTAI）飞天 53度 500ml...</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		
+		</div>
+		<!--尾部-->
+		<div id="foot"></div>
+		
+		
+	<script type="text/javascript">
+		//引入尾部
+		$(function(){
+			$("#foot").load("footer.html");
+		})
+		
+		    /*cookie*/
+    //get date
+    var cartName =  getCookie("loginedUser");
+    if(cartName  == "") {//
+        cartName = 'admin';
+    }
+    //console.log(cartName);
+    var goods = $.cookie('mycart'+cartName) ?JSON.parse($.cookie('mycart'+cartName)) :{};
+    $('#cart-size').html(getJsonLength(goodsId, goods));
+
+    //使用数据
+    //拼接字符串
+    var html = '';
+   var totalPrice = 0.00;
+    var totalNum = 0;
+    for(var goodsId in goods){
+        html += '<li class="cart-item" id="'+ goods[goodsId].id + '"><a href="javascript:;" target="_blank" class="cart-item-img"><img src=" '+goods[goodsId].pic+' "><span class="cart-item-text"><strong>'
+        html += goods[goodsId].name;
+        html += '</strong></span></a><span class="cart-item-price" id=""><span class="yen">¥</span><span id="cart-item-price"> ';
+        html += goods[goodsId].price;
+        html += '</span></span><span class="cart-item-num" id=""> ×<span id="cart-item-num" >';
+        html += goods[goodsId].num;
+        html += '</span></span><a class="cart-item-del" href="" style="margin-top:-12px; font-size:14px;">x</a></li> ';
+       totalNum += parseFloat(goods[goodsId].num);
+       totalPrice += parseFloat(goods[goodsId].price) * parseFloat(goods[goodsId].num)
+    }
+    //进入页面时 加载
+    $('#small-cart').html(html);
+   $('#totalNum').html(totalNum);
+       // getTotalNum();
+    $('#totalPri').html(totalPrice.toFixed(2));
+       // getTotalPrice();
+    
+    /*点击删除*/
+    $('.cart-item-del').click(function(){
+        var goodsId = $(this).parent().attr('id');
+        $(this).parent().remove();
+        console.log(goodsId)
+        var goods = JSON.parse($.cookie('mycart'+cartName));
+        goods[goodsId] = undefined;
+        $.cookie('mycart'+cartName, JSON.stringify(goods), {expires: 7, path: '/'});
+        console.log(JSON.parse($.cookie('mycart'+cartName)));
+        getTotalNum();
+        getTotalPrice();
+    })
+
+    function getTotalPrice(){
+        var alis = $('.cart-item');
+        var no = 0;
+        var pri = 0;
+        var totalPric = 0;//小计
+        for (var i = 0; i < alis.length; i++) {
+            pri = parseFloat($(alis[i]).find('#cart-item-price').text());
+            no =  parseFloat($(alis[i]).find('#cart-item-num').text());
+            totalPric  += pri * no;
+        }
+       $('#totalPri').text(totalPric.toFixed(2));
+    }
+
+    function  getTotalNum(){
+        var lis = $('.cart-item');
+        var num = 0;
+        var totalNo = 0;//小计
+        for (var i = 0; i < lis.length; i++) {
+            num = parseFloat($(lis[i]).find('#cart-item-num').html());
+            //console.log(num)
+            totalNo += num;
+        }
+       $('#totalNum').text(totalNo);
+    }
+	</script>
+	<script src="../js/home-page.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

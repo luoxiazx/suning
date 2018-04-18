@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录</title>
+		<link rel="stylesheet" type="text/css" href="../css/login.min.css"/>
+		<script src="../js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!--头部-->
+		<div class="header">
+	        <a href="http://www.suning.com" class="logo"><img src="../img/login/snlogo.png"/></a>
+	        <div style="margin-left:189px;padding:37px 0 0 16px;*zoom:1">
+	            <div style="margin-right:-100px;*zoom:1">
+	                <div class="bind-phone">为确保您账户的安全及正常使用，依《网络安全法》相关要求，6月1日起会员账户需绑定手机。如您还未绑定，请尽快完成，感谢您的理解及支持！</div>
+	            </div>
+	            <a href="#" class="advise">我想对“登录”提意见</a>
+	        </div>  
+    	</div>
+    	<!--中间-->
+    	<div class="main" style="background:url(../img/login/bg.jpg) center no-repeat;">
+	        <div class="login-c">
+	            <div class="login-form">
+	            	<div class="login-tab">
+	                    <a href="#" class="tab-on"><span>扫码登录</span><div style="display: block;"></div></a>
+	                    <a href="#"><span>账户登录</span><div></div></a>
+	               </div>
+	                <div class="scan-login">                    
+	                    <div class="scan-box">
+	                        <img src="../img/login/ewm.png" class="ewm"/>
+	                        <img src="../img/login/scan.png"/ class="phone">
+	                    </div>          
+	                    <p class="open-app">打开<a href="#" class="sm"><span>苏宁易购APP</span></a>扫码登录</p>	                    
+	                </div>
+	                <div class="pc-login">
+	                	<div class="username-login">
+           						<div class="login-error"><span id="txt"></span></div>
+            					<div class="login-blank" style="line-height:40px;">&nbsp;</div>
+            				<div class="username-box">
+	                			<div class="input-box">
+	                    			<input id="userName" type="text" placeholder="用户名/手机/邮箱/门店会员卡号">
+	                    			<span class="clear">x</span>
+	                			</div>
+            				</div>
+                			<div class="password-box">
+                				<div class="input-box">
+                					<input id="password" type="password" placeholder="密码">
+                    				<span class="clear">x</span>
+                            	</div>
+                        	</div>
+                        	<div class="login-help">
+                           		<a class="login-switch" href="#">短信验证码登录</a>
+                            	<a href="#" class="forget-password">忘记密码？</a>
+							</div>
+                    		<a id="submit">登录</a>
+                    	</div>
+	                </div>	                
+	                <div class="free-reg">
+	                    <a href="register.html">免费注册 有惊喜 &gt;</a>
+	                </div>
+	                <div class="bind-login">
+	                    <span class="title">使用以下账号登录</span>
+	                    <div class="common">
+	                    	<img src="../img/login/qq.jpg" style="margin: 0;"></img>
+	                        <a href="#">QQ</a>
+	                        <img src="../img/login/wx.jpg"></img>
+	                        <a href="#">微信</a>
+	                        <img src="../img/login/yfb.jpg"></img>
+	                        <a href="#">易付宝</a>
+	                        <a href="#">门店会员卡</a>                   
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+        <!--尾部-->
+        <div class="footer">
+                <p class="url">
+                    <a href="http://www.suning.cn/" target="_blank">苏宁云商</a><span>|</span>
+                    <a href="http://10035.suning.com/" target="_blank">苏宁互联</a><span>|</span>
+                    <a href="http://jinrong.suning.com/" target="_blank">苏宁金融</a><span>|</span>
+                    <a href="https://passport.suning.com/ids/trustLogin?sysCode=epp&amp;targetUrl=https://pay.suning.com/epp-epw/login/login.action" rel="nofollow" target="_blank" >易付宝</a><span>|</span>
+                    <a href="http://www.pptv.com?rcc_id=snyg" target="_blank">PPTV</a><span>|</span>
+                    <a href="http://redbaby.suning.com/" target="_blank" >红孩子</a><span>|</span>
+                    <a href="http://binggo.suning.com/" target="_blank" >缤购</a><span>|</span>
+                    <a href="http://laox.suning.com/" target="_blank">乐购仕</a><span>|</span>
+                    <a href="http://wuliu.suning.com/" target="_blank">苏宁物流</a><span>|</span>
+                    <a href="http://usa.suning.com/" target="_blank" >苏宁美国</a><span>|</span>
+                    <a href="http://hk.suning.com/" target="_blank" >苏宁香港</a><span>|</span>
+                    <a href=" http://m.suning.com/" target="_blank">手机苏宁</a>
+                </p>
+                <p class="url">
+                    <a href="http://club.suning.com/hr/aboutus.html" target="_blank" >关于苏宁易购</a><span>|</span>
+                    <a href="http://help.suning.com/page/id-469.htm" target="_blank" >联系我们</a><span>|</span>
+                    <a href="http://careers.cnsuning.com/" target="_blank">诚聘英才</a><span>|</span>
+                    <a href="http://sop.suning.com/" target="_blank">供应商入驻</a><span>|</span>
+                    <a href="http://union.suning.com/" target="_blank">苏宁联盟</a><span>|</span>
+                    <a href="http://zb.suning.com/" target="_blank" >苏宁招标</a><span>|</span>
+                    <a href="http://union.suning.com/aas/links.html" target="_blank">友情链接</a><span>|</span>
+                    <a href="http://help.suning.com/page/id-281.htm" target="_blank" >法律申明</a><span>|</span>
+                    <a href="http://ued.suning.com/survey/" target="_blank" >用户体验提升计划</a><span>|</span>
+                    <a href="http://mrs.suning.com/mrs-web/stockholder/check.htm" target="_blank">股东会员认证</a>
+                </p>
+                <p class="copyright">
+                    Copyright? 2002-2017 ，苏宁云商集团股份有限公司版权所有
+                    <a href="http://www.miitbeian.gov.cn" target="_blank" style="color:#999">苏ICP备10207551号-4</a>
+                    <a href="http://img.suning.cn/public/v3/images/SUB1-20130131.png" target="_blank" style="color:#999">苏B1-20130131</a>
+                    <a href="http://img.suning.cn/public/v3/images/SUB2-20130376.png" target="_blank" style="color:#999">苏B2-20130376</a>
+                    <a href="http://img.suning.cn/public/v3/images/SUB2-20130391.png" target="_blank" style="color:#999">苏B2-20130391</a>
+                    出版物经营许可证新出发苏批字第A-243号</p>
+                <div class="web">
+                    <a href="https://search.szfw.org/cert/l/CX20111018000608000610" target="_blank" >
+                        <img height="24" width="76" alt="诚信网站" src="https://image.suning.cn/public/v3/images/chengxin.png" class="loading">
+                    </a>
+                    <a href="http://image.suning.cn/uimg/snnet/snnetImg/142891196680527240.jpg" target="_blank">
+                        <img height="24" width="76" alt="中国联通授权网络经营代理商" src="https://image.suning.cn/public/v3/images/unicom.png">
+                    </a>
+                    <a href="http://img.suning.cn/public/v3/images/dianxin_content.jpg" target="_blank">
+                        <img height="24" width="76" alt="中国电信授权网络经营代理商" src="https://image.suning.cn/public/v3/images/dianxin.jpg">
+                    </a>
+                    <a href="http://odr.jsdsgsxt.gov.cn/mbm/entweb/elec/certView.shtml?siteId=27cfad762f3d45069d79a9f8f83f458f" target="_blank">
+                        <img height="24" width="76" alt="电子营业执照" src="https://image.suning.cn/public/v3/images/dianzi.png?v=02">
+                    </a>
+                </div>
+        </div>
+    <script src="../js/login.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

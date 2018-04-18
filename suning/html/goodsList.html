@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>苏宁商品列表</title>
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="../js/jq-page.js"></script>
+    <script src="../js/getJsonLength.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <script src="../js/js.cookie.js"></script>
+    <script src="../js/lodash.core.min.js"></script>
+    <script src="../js/jquery.fly.min.js"></script>
+    <link rel="stylesheet" href="../css/style.min.css">
+    <link rel="stylesheet" href="../css/other.min.css">
+    <script src="../js/ajax.js"></script>
+    <script src="../js/move.js"></script>
+    <script src="../js/main.js"></script>
+    <style>
+        *{ margin:0; padding:0; list-style:none;}
+        a{ text-decoration:none;}
+        a:hover{ text-decoration:none;}
+        .tcdPageCode{padding: 15px 20px;text-align: left;color: #ccc;     margin-top: 60px;  margin-bottom: 40px;  text-align: center;}
+        .tcdPageCode a{display: inline-block;color: #428bca;display: inline-block;height: 25px;	line-height: 25px;	padding: 0 10px;border: 1px solid #ddd;	margin: 0 2px;border-radius: 4px;vertical-align: middle;}
+        .tcdPageCode a:hover{text-decoration: none;border: 1px solid #428bca;}
+        .tcdPageCode span.current{display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;color: #fff;background-color: #428bca;	border: 1px solid #428bca;border-radius: 4px;vertical-align: middle;}
+        .tcdPageCode span.disabled{	display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;	color: #bfbfbf;background: #f2f2f2;border: 1px solid #bfbfbf;border-radius: 4px;vertical-align: middle;}
+    </style>
+</head>
+<body>
+<div class="list-header"></div>
+<div class="product-list">
+    <div class="search-box">
+        <div class="search-nav">
+            <span class="default_path">
+                <a href="/" data-monitor="search_crumb_home">首页</a><i>&gt;</i><a href="/search" data-monitor="search_crumb_all">全部搜索结果</a></span> <div class="breadcrumbs_box"><span class="sw_box">
+            </span>
+            <span class="tag_box">
+            </span></div> <span class="qwords">全部</span></div>
+    </div>
+   <!--page split start-->
+    <div class="list-box" id="list-box" >
+        <ul class="list" id="list">
+
+        </ul>
+
+        <div class="tcdPageCode"></div>
+    </div>
+
+    <!--page split over-->
+
+</div>
+
+<div class="list-footer"></div>
+
+<script charset="utf-8">
+
+    var cartName =  getCookie("loginedUser");
+    if(cartName  == "") {//
+
+        cartName = 'admin';
+    }
+   // console.log(cartName);
+
+    var ajax=InitAjax();
+    DoAjaxGet(ajax,'../data/goodsList.json', load);
+    function load(res) {
+        var canClick = true;//当点击购买数量超过临界值时改变其值
+
+        var json = eval(res);
+        //console.log(json);
+        var hopGoods = 20;//设置每页的张数，可调整。/**/
+        var pag = 0;     //总页数
+        pag=Math.ceil(json.length/hopGoods);
+        /*
+        * 加载首页时
+        * */
+
+        goodsListOnPage(0);//首页标识为0
+        /*
+        * 封装动态拼接页面元素的 一系列点击事件
+        * */
+        function goodsListOnPage(pageNo){
+
+
+            var html = '';
+            for (var i =pageNo * hopGoods; i < pageNo * hopGoods + hopGoods; i++) {
+                if (i < json.length) {
+                    html += '<li class="list-item"><dl class="desc"><dt class="pic"><a href="detail.html" target="_blank">   ';
+                    html += ' <img class="lazy" src="' + json[i].url + '" alt=""></a></dt><dd class="cont"><a target="_blank" href="detail.html">          '
+                    html += ' <span class="title">   '
+                    html += json[i].title;
+                    html += '</span><span class="price">   ';
+                    html += json[i].price;
+                    html += ' </span></a></dd><dd class="btns" id="btns"><a href="javascript:;" class="add-cart" id=" ' + json[i].id + ' "><em>加入购物车</em></a></dd></dl></li>';
+                }
+            }
+            $('.product-list .list-box .list').html(html);
+
+            $('.product-list .list-item').click(function(evt){
+                //阻止事件冒泡
+                evt.stopPropagation();
+                //do something
+                var detailId =  $(this).find('.add-cart').attr('id');
+                var detailName =  $(this).find('.title').text();
+                var detailPrice =  $(this).find('.price').text();
+                var detailPic = $(this).find('.lazy').attr('src');
+                var detailNum = 1;
+                //var detail = $.cookie('mydetail') ? JSON.parse($.cookie('mydetail')) : {};
+                //write json
+                detail = {
+                    "name": detailName,
+                    "price": detailPrice,
+                    "num": detailNum,
+                    "id":detailId,
+                    "pic":detailPic
+                    //"usn":goodsUsn
+
+                }
+                //set cookie
+                $.cookie('mydetail', JSON.stringify(detail), {expires: 7, path: '/'});
+                //console.log(JSON.parse($.cookie('mydetail')));
+            })
+            /*
+             * cookie  cart
+             * */
+
+            $('.list-box .list .list-item .add-cart').click(function(evt) {
+                //阻止事件冒泡
+                event.stopPropagation();
+                //do something
+                var spans = $(this).parent('.btns').siblings();
+                var goodsId = $(this).attr('id');
+                // console.log(goodsId)
+                var goodsName = $(spans[1]).find(' .title ').text();
+                //console.log(goodsName)
+                var goodsPrice = $(spans[1]).find('.price').text();
+                var goodsPic = $(spans[0]).find('.lazy').attr('src');
+
+                /*goods wei json*/
+                var goodsUsn = $('#login-usn').html();
+                var goods = $.cookie("mycart"+cartName) ? JSON.parse($.cookie("mycart"+cartName)) : {};
+                if ( goodsId in goods) {
+                    goods[goodsId].num++;
+                    canClick = true
+                     if(goods[goodsId].num == 20){
+                     canClick = false;
+                         //alert(canClick)
+                     }
+                    if (goods[goodsId].num > 20){
+                        goods[goodsId].num == 20;
+                        canClick = false;
+                        return false;
+                    }
+                } else {
+                    canClick = true
+                    goods[goodsId]={
+                        "name": goodsName,
+                        "price": goodsPrice,
+                        "num": 1,
+                        "id":goodsId,
+                        "pic":goodsPic
+                        //"usn":goodsUsn
+                    }
+                }
+                $.cookie("mycart"+cartName, JSON.stringify(goods), {expires: 7, path: '/'});
+                // console.log("mycarts:"+$.cookie("mycart"+cartName));
+            })
+
+           /*
+           * 分页点击 该方法由分页插件提供*/
+            $('.tcdPageCode a').click(function(){
+                var timer = null;
+                clearInterval(timer);
+                timer = setInterval(function (){
+                    var current = document.documentElement.scrollTop || document.body.scrollTop || 0; //兼容
+                    if(current < 160){
+                        clearInterval(timer);
+                        return;
+                    } else {
+                        var dis = 150 - current;
+                        //定制速度 可调
+                        var speed = dis > 0? Math.ceil(dis/8): Math.floor(dis/8);
+                        document.documentElement.scrollTop = current + speed;
+                        document.body.scrollTop = current + speed;
+                        return;
+                    }
+
+                }, 30);
+            })
+
+
+
+            /*
+             *fly cart 该方法由对应飞入购物车插件提供
+             * */
+            $(".list-item #btns .add-cart").click(function(event) {
+                if(!canClick){
+                    return false
+                }
+                // return false;
+                var addcar = $(this);
+                var imgUrl = addcar.parent().prev().prev().find('img').attr('src');
+                var flyer = $('<img class="u-flyer" src="' + imgUrl + '">');
+                flyer.fly({
+                    start: {
+                        left: event.clientX +22,
+                        top: event.clientY -70
+                    },
+                    end: {
+                        left: 1555 + 10,
+                        top: 200 + 10,
+                        width: 0,
+                        height: 0
+                    }/*,
+                     onEnd: function () {
+                     //$("#msg").show().animate({width: '250px'}, 200).fadeOut(1000);
+                     //addcar.css("cursor","default").removeClass('orange').unbind('click');
+                     //this.destory();
+                     return;
+                     }*/
+                })
+            })
+
+
+        }
+
+        $(".tcdPageCode").createPage({
+            pageCount:pag +0,
+            current:1,
+            backFn:function(p) {
+                p--;
+              //调用封装好的函数 传入参数
+                goodsListOnPage(p)
+            }
+        })
+    }
+</script>
+
+
+</body>
+</html>
